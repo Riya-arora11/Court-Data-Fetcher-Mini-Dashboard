@@ -15,18 +15,18 @@ It was built as part of an internship project and demonstrates how to combine we
 
 ```
 .
-├── app.py                # Flask application entry point
-├── 2nd Scrap.py      # Scraper for the pCase site (renamed from `2nd scrap.py`)
-├── data_extract.py       # Scraper for the public case status site (renamed from `data extract.py`)
+├── app.py               
+├── 2nd Scrap.py      
+├── data_extract.py       
 ├── chromedriver.exe      # ChromeDriver binary used by Selenium (Windows build)
 ├── queries.db            # SQLite database storing search logs
 ├── templates/
 │   └── index.html        # HTML template for the dashboard
 ├── external/
-│   └── tesseract/        # Place `tesseract.exe` here or adjust `TESSERACT_BUNDLE` in `app.py`
+│   └── tesseract/        
 ├── requirements.txt       # Python dependencies
-├── .gitignore            # Files/directories to ignore in Git
-└── README.md             # Project documentation (this file)
+├── .gitignore           
+└── README.md             # Project documentation 
 ```
 
 ## CAPTCHA Bypass Approach
