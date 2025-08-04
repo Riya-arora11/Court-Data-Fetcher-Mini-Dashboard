@@ -72,7 +72,7 @@ code = re.search(r"\b\d{4}\b", txt)
 1. **Clone this repository**:
 
 ```bash
-git clone https://github.com/your-username/court-data-fetcher.git
+git clone https://github.com/Riya-arora11/Court-Data-Fetcher-Mini-Dashboard.git
 cd court-data-fetcher
 ```
 
@@ -115,6 +115,3 @@ Enter a case type, case number and year, and the application will fetch and disp
 - **Logging** – All successful queries are appended to the `queries` table in `queries.db`.  You can explore the database using SQLite tools.
 - **Legal and Ethical Considerations** – Scraping court websites should respect their terms of service.  This project is for educational purposes; you are responsible for complying with local laws and website policies.
 
-## License
-
-This project is provided for educational purposes.  You should add an appropriate license if you plan to distribute or use it beyond personal or academic work.
