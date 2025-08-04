@@ -1,0 +1,32 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+dist/
+.eggs/
+*.egg-info/
+
+# Virtual environments
+.venv/
+env/
+venv/
+ENV/
+
+# Editor directories and files
+.vscode/
+*.swp
+.DS_Store
+
+# Logs and databases
+*.log
+# We commit the SQLite DB for demonstration; remove if you want to persist across clones
+
+# Binary drivers
+# NOTE: we commit chromedriver.exe for convenience, but you might want to ignore and download it separately.

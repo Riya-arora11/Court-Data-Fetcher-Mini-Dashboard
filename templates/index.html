@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Court‑Data Fetcher &amp; Dashboard</title>
+  <!-- Use Bootstrap from a CDN for quick styling -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384‑ENjdO4Dr2bkBIFxQpeoA6Xc0Z6jIWjzYtL6Hfo6taJWQXr8XaztQe2txPYJeFv6I" crossorigin="anonymous">
+  <style>
+    body { padding-top: 2rem; }
+    h1 { font-size: 1.75rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="mb-4">Court‑Data Fetcher &amp; Mini‑Dashboard</h1>
+    <!-- Query form -->
+    <form method="post" novalidate>
+      <div class="row g-3 align-items-end">
+        <div class="col-md-3">
+          <label for="case_type" class="form-label">Case Type</label>
+          <select name="case_type" id="case_type" class="form-select" required>
+            <option value="" disabled selected>Select type</option>
+            {% for ct in available_case_types %}
+            <option value="{{ ct }}">{{ ct }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label for="case_number" class="form-label">Case Number</label>
+          <input type="text" name="case_number" id="case_number" class="form-control" placeholder="e.g. 123" required>
+        </div>
+        <div class="col-md-3">
+          <label for="year" class="form-label">Filing Year</label>
+          <input type="text" name="year" id="year" class="form-control" placeholder="e.g. 2023" required>
+        </div>
+        <div class="col-md-3">
+          <button type="submit" class="btn btn-primary w-100">Search</button>
+        </div>
+      </div>
+    </form>
+    <!-- Error message display -->
+    {% if error_message %}
+    <div class="alert alert-danger mt-4" role="alert">
+      {{ error_message }}
+    </div>
+    {% endif %}
+    <!-- Display results if present -->
+    {% if result %}
+    <div class="card mt-4">
+      <div class="card-header fw-bold">
+        Case Details
+      </div>
+      <div class="card-body">
+        <p><strong>Case Type:</strong> {{ result.case_type }}</p>
+        <p><strong>Case Number:</strong> {{ result.case_number }}</p>
+        <p><strong>Year:</strong> {{ result.year }}</p>
+        <p><strong>Party&nbsp;1 (Petitioner):</strong> {{ result.party1 or 'N/A' }}</p>
+        <p><strong>Party&nbsp;2 (Respondent):</strong> {{ result.party2 or 'N/A' }}</p>
+        <p><strong>Filing Date:</strong> {{ result.filing_date or 'N/A' }}</p>
+        <p><strong>Next Hearing Date:</strong> {{ result.next_hearing_date or 'N/A' }}</p>
+        <p><strong>Order/Judgment PDF:</strong>
+        {% if result.pdf_link %}
+          <a href="{{ result.pdf_link }}" target="_blank" class="link-primary">Download</a>
+        {% else %}
+          N/A
+        {% endif %}
+        </p>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+Flask==3.0.0
+selenium==4.18.1
+pytesseract==0.3.10
+pillow==10.0.0
+opencv-python==4.10.0.82
+numpy==1.25.2
+requests==2.31.0
